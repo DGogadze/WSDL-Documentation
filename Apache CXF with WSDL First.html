@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<!-- saved from url=(0072)https://www.tutorialspoint.com/apache_cxf/apache_cxf_with_wsdl_first.htm -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.mui-textfield.mui-textfield--float-label > label {-webkit-transition:all .15s ease-out;-moz-transition:all .15s ease-out;-o-transition:all .15s ease-out;transition:all .15s ease-out;}</style><style type="text/css">@keyframes mui-btn-inserted{from{transform:none;}to{transform:none;}}.mui-btn{animation-duration:0.0001s;animation-name:mui-btn-inserted;}@keyframes mui-dropdown-inserted{from{transform:none;}to{transform:none;}}[data-mui-toggle="dropdown"]{animation-duration:0.0001s;animation-name:mui-dropdown-inserted;}@keyframes mui-btn-inserted,mui-dropdown-inserted{from{transform:none;}to{transform:none;}}.mui-btn[data-mui-toggle="dropdown"]{animation-duration:0.0001s;animation-name:mui-btn-inserted,mui-dropdown-inserted;}@keyframes mui-tab-inserted{from{transform:none;}to{transform:none;}}[data-mui-toggle="tab"]{animation-duration:0.0001s;animation-name:mui-tab-inserted;}@keyframes mui-textfield-inserted{from{transform:none;}to{transform:none;}}.mui-textfield > input{animation-duration:0.0001s;animation-name:mui-textfield-inserted;}@keyframes mui-textfield-inserted{from{transform:none;}to{transform:none;}}.mui-textfield > textarea{animation-duration:0.0001s;animation-name:mui-textfield-inserted;}@keyframes mui-select-inserted{from{transform:none;}to{transform:none;}}.mui-select > select{animation-duration:0.0001s;animation-name:mui-select-inserted;}@keyframes mui-node-inserted{from{transform:none;}to{transform:none;}}.mui-select > select ~ .mui-event-trigger{animation-duration:0.0001s;animation-name:mui-node-inserted;}@keyframes mui-node-disabled{from{transform:none;}to{transform:none;}}.mui-select > select:disabled ~ .mui-event-trigger{animation-duration:0.0001s;animation-name:mui-node-disabled;}</style><script type="text/javascript" async="" src="./Apache CXF with WSDL First_files/analytics.js.download"></script><script type="text/javascript" async="" src="./Apache CXF with WSDL First_files/js"></script><script type="text/javascript" src="./Apache CXF with WSDL First_files/ruxitagent_ICA2Vfqru_10233220201140653.js.download" data-dtconfig="app=5cc7a246c9b222ce|cors=1|rcdec=1209600000|featureHash=ICA2Vfqru|vcv=2|reportUrl=https://bf44286sqa.bf.dynatrace.com/bf|rdnt=1|uxrgce=1|bp=3|srmcrv=10|cuc=zpsr6n32|mel=100000|dpvc=1|ssv=4|lastModification=9999999999999|dtVersion=10233220201140653|srmcrl=1|tp=500,50,0,1|uxdcw=1500|agentUri=https://js-cdn.dynatrace.com/jstag/15fc9f135f3/ruxitagent_ICA2Vfqru_10233220201140653.js" crossorigin="anonymous"></script>
+<title>Apache CXF with WSDL First</title>
+
+<meta name="description" content="Apache CXF with WSDL First,  The CXF-POJO application that you have developed results in a very tight coupling between the client and the server. Giving a direct access to the service inter">
+<meta name="keywords" content="C, C++, Python, Java, HTML, CSS, JavaScript, SQL, PHP, jQuery, XML, DOM, Bootstrap, Tutorials, Articles, Programming, training, learning, quiz, preferences, examples, code">
+<link rel="canonical" href="https://www.tutorialspoint.com/apache_cxf/apache_cxf_with_wsdl_first.htm">
+<link rel="shortcut icon" href="https://www.tutorialspoint.com/favicon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<link rel="stylesheet" href="./Apache CXF with WSDL First_files/style-min-v1.css">
+<script src="./Apache CXF with WSDL First_files/prism-core.min.js.download"></script>
+<script src="./Apache CXF with WSDL First_files/prism-autoloader.min.js.download"></script>
+<script src="./Apache CXF with WSDL First_files/script-min-v1.js.download"></script><link rel="stylesheet" type="text/css" href="./Apache CXF with WSDL First_files/prettify.css">
+<script>
+function printPage() { window.print(); }
+function readCookie(name) {
+     var nameEQ = name + "=";
+     var ca = document.cookie.split(';');
+     for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+     }
+     return null;
+}
+</script>
+<script id="adp1" data-cfasync="false">(function(w, d) { var s = d.createElement('script'); s.src = '//cdn.adpushup.com/40046/adpushup.js'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script><script src="./Apache CXF with WSDL First_files/adpushup.js.download" type="text/javascript" async=""></script>
+<script id="adp2" data-cfasync="false">(function(w, d) {var cval = readCookie('subscription_purchased');if(cval == '1'){ return; } var s = d.createElement('script'); s.src = '//delivery.adrecover.com/18107/adRecover.js'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script><script src="./Apache CXF with WSDL First_files/adRecover.js.download" type="text/javascript" async=""></script>
+<style>
+.butnn-save a{color:#fff;} .notes_msg{color:green; margin-left:20px; margin-top:15px;}
+.right-menu .mui-btn {
+    background-color:#db4c2e;
+}
+a.demo {
+    background:#db4c2e;
+}
+li.heading {
+    background:#db4c2e;
+}
+.course-box{background:#db4c2e}
+.home-intro-sub p{color:#db4c2e}
+a.demo{
+   top: 12px;
+   float:right;
+}
+.prettyprint{
+   width: 99%;
+}
+.site-message img {
+   width:100%;
+}
+@media (max-width:544px){
+   .site-message img {
+       width: 200%;
+       position: relative;
+       left: -50%;
+   }
+}
+</style>
+<script type="text/javascript" async="" src="./Apache CXF with WSDL First_files/jquery-2.2.2.min.js.download"></script></head>
+<body>
+<header id="header" class="fixed">
+<div class="site-message">
+  <a href="https://www.tutorialspoint.com/latest/prime-packs">
+  <img src="./Apache CXF with WSDL First_files/top-banner.jpg" alt="Video Courses Sale">
+  </a>
+</div>
+<!-- pop-up -->
+<!-- pop-up -->
+<div class="pop-modal overlay-pop popdiv" style="display: none;">
+<div class="modal-window small">
+<span class="close" title="close">×</span>
+<div class="pop-content">
+</div>
+<span class="msg"></span>
+</div>
+</div>
+<div class="wrap_loader">
+<div class="imgLoader"></div>
+</div>
+<input type="hidden" id="vu" name="vu" value="">
+<!-- pop-up -->
+
+<!-- Top sub-menu Starts Here -->
+<div class="mui-appbar mui-container-fulid top-menu">
+<div class="mui-container">
+<div class="top-menu-item home">
+<a href="https://www.tutorialspoint.com/index.htm" target="_blank" title="TutorialsPoint - Home"><i class="fal fa-home"></i> <span>Home</span></a>
+</div>
+<div class="top-menu-item qa">
+<a href="https://www.tutorialspoint.com/about/about_careers.htm" target="_blank" title="Job @ Tutorials Point"><i class="fa fa-suitcase"></i> <span>Jobs</span></a>
+</div>
+<div class="top-menu-item tools">
+<a href="https://www.tutorialspoint.com/online_dev_tools.htm" target="_blank" title="Tools - Online Development and Testing Tools"><i class="fal fa-cogs"></i> <span>Tools</span></a>
+</div>
+<div class="top-menu-item coding-ground">
+<a href="https://www.tutorialspoint.com/codingground.htm" target="_blank" title="Coding Ground - Free Online IDE and Terminal"><i class="fal fa-code"></i> <span>Coding Ground </span></a> 
+</div>
+<div class="top-menu-item current-affairs">
+<a href="https://www.tutorialspoint.com/current_affairs.htm" target="_blank" title="Daily Current Affairs"><i class="fal fa-layer-plus"></i> <span>Current Affairs</span></a>
+</div>
+<div class="top-menu-item upsc-notes">
+<a href="https://www.tutorialspoint.com/upsc_ias_exams.htm" target="_blank" title="UPSC IAS Exams Notes - TutorialsPoint"><i class="fal fa-user-tie"></i> <span>UPSC Notes</span></a>
+</div>      
+<div class="top-menu-item articles">
+<a href="https://www.tutorialspoint.com/tutor_connect/index.php" target="_blank" title="Top Online Tutors - Tutor Connect"><i class="fal fa-user"></i> <span>Online Tutors</span></a>
+</div>
+<div class="top-menu-item whiteboard">
+<a href="https://www.tutorialspoint.com/whiteboard.htm" target="_blank" title="Free Online Whiteboard"><i class="fal fa-chalkboard"></i> <span>Whiteboard</span></a>
+</div>
+<div class="top-menu-item articles">
+<a href="https://www.tutorix.com/" target="_blank" title="Tutorx - The Best Learning App" rel="nofollow"><i class="fal fa-video"></i> <span>Tutorix</span></a> 
+</div>
+<div class="top-menu-item net-meeting">
+<a href="https://www.tutorialspoint.com/market/login.asp?v=4.00" target="_blank" title="Login TutorialsPoint"><i class="fal fa-sign-in-alt"></i> <span>Login</span></a> 
+</div>      
+<div class="social-menu-item">
+<a href="https://www.facebook.com/tutorialspointindia" target="_blank" rel="nofollow" data-placement="bottom" title="tutorialspoint @ Facebook"><i class="fab fa-facebook-f"></i></a> 
+<a href="https://www.twitter.com/tutorialspoint" target="_blank" rel="nofollow" data-placement="bottom" title="tutorialspoint @ Twitter"><i class="fab fa-twitter"></i></a>
+<a href="https://www.linkedin.com/company/tutorialspoint" target="_blank" rel="nofollow" data-placement="bottom" title="tutorialspoint @ Linkedin"><i class="fab fa-linkedin-in"></i></a>
+<a href="https://www.youtube.com/channel/UCVLbzhxVTiTLiVKeGV7WEBg" target="_blank" rel="nofollow" data-placement="bottom" title="tutorialspoint YouTube"><i class="fab fa-youtube"></i></a>
+</div>        
+</div>
+</div>
+<!-- Top sub-menu Ends Here -->
+<!-- Top main-menu Starts Here -->
+<div class="mui-appbar mui-container-fulid mui--appbar-line-height mui--z1 sticky" id="logo-menu">
+<div class="mui-container">
+<div class="left-menu">
+<a href="https://www.tutorialspoint.com/index.htm" title="Tutorialspoint">
+<img class="tp-logo" alt="tutorialspoint" src="./Apache CXF with WSDL First_files/logo.png">
+</a>
+<div class="mui-dropdown">
+<a class="mui-btn mui-btn--primary categories" data-mui-toggle="dropdown"><i class="fa fa-th-large"></i> 
+<span>Categories <span class="mui-caret"></span></span></a>            
+<ul class="mui-dropdown__menu cat-menu">
+<li>
+<ul>
+<li><a href="https://www.tutorialspoint.com/academic_tutorials.htm"><i class="fa fa-caret-right"></i> Academic Tutorials</a></li>
+<li><a href="https://www.tutorialspoint.com/big_data_tutorials.htm"><i class="fa fa-caret-right"></i> Big Data &amp; Analytics </a></li>
+<li><a href="https://www.tutorialspoint.com/computer_programming_tutorials.htm"><i class="fa fa-caret-right"></i> Computer Programming </a></li>
+<li><a href="https://www.tutorialspoint.com/computer_science_tutorials.htm"><i class="fa fa-caret-right"></i> Computer Science </a></li>
+<li><a href="https://www.tutorialspoint.com/database_tutorials.htm"><i class="fa fa-caret-right"></i> Databases </a></li>
+<li><a href="https://www.tutorialspoint.com/devops_tutorials.htm"><i class="fa fa-caret-right"></i> DevOps </a></li>
+<li><a href="https://www.tutorialspoint.com/digital_marketing_tutorials.htm"><i class="fa fa-caret-right"></i> Digital Marketing </a></li>
+<li><a href="https://www.tutorialspoint.com/engineering_tutorials.htm"><i class="fa fa-caret-right"></i> Engineering Tutorials </a></li>
+<li><a href="https://www.tutorialspoint.com/upsc_ias_exams.htm"><i class="fa fa-caret-right"></i> Exams Syllabus </a></li>
+<li><a href="https://www.tutorialspoint.com/famous_monuments.htm"><i class="fa fa-caret-right"></i> Famous Monuments </a></li>
+<li><a href="https://www.tutorialspoint.com/gate_exams_tutorials.htm"><i class="fa fa-caret-right"></i> GATE Exams Tutorials</a></li>
+<li><a href="https://www.tutorialspoint.com/latest_technologies.htm"><i class="fa fa-caret-right"></i> Latest Technologies </a></li>
+<li><a href="https://www.tutorialspoint.com/machine_learning_tutorials.htm"><i class="fa fa-caret-right"></i> Machine Learning </a></li>
+<li><a href="https://www.tutorialspoint.com/mainframe_tutorials.htm"><i class="fa fa-caret-right"></i> Mainframe Development </a></li>
+<li><a href="https://www.tutorialspoint.com/management_tutorials.htm"><i class="fa fa-caret-right"></i> Management Tutorials </a></li>
+<li><a href="https://www.tutorialspoint.com/maths_tutorials.htm"><i class="fa fa-caret-right"></i> Mathematics Tutorials</a></li>
+<li><a href="https://www.tutorialspoint.com/microsoft_technologies_tutorials.htm"><i class="fa fa-caret-right"></i> Microsoft Technologies </a></li>
+<li><a href="https://www.tutorialspoint.com/misc_tutorials.htm"><i class="fa fa-caret-right"></i> Misc tutorials </a></li>
+<li><a href="https://www.tutorialspoint.com/mobile_development_tutorials.htm"><i class="fa fa-caret-right"></i> Mobile Development </a></li>
+<li><a href="https://www.tutorialspoint.com/java_technology_tutorials.htm"><i class="fa fa-caret-right"></i> Java Technologies </a></li>
+<li><a href="https://www.tutorialspoint.com/python_technologies_tutorials.htm"><i class="fa fa-caret-right"></i> Python Technologies </a></li>
+<li><a href="https://www.tutorialspoint.com/sap_tutorials.htm"><i class="fa fa-caret-right"></i> SAP Tutorials </a></li>
+<li><a href="https://www.tutorialspoint.com/scripting_lnaguage_tutorials.htm"><i class="fa fa-caret-right"></i>Programming Scripts </a></li>
+<li><a href="https://www.tutorialspoint.com/selected_reading.htm"><i class="fa fa-caret-right"></i> Selected Reading </a></li>
+<li><a href="https://www.tutorialspoint.com/software_quality_tutorials.htm"><i class="fa fa-caret-right"></i> Software Quality </a></li>
+<li><a href="https://www.tutorialspoint.com/soft_skill_tutorials.htm"><i class="fa fa-caret-right"></i> Soft Skills </a></li>
+<li><a href="https://www.tutorialspoint.com/telecom_tutorials.htm"><i class="fa fa-caret-right"></i> Telecom Tutorials </a></li>
+<li><a href="https://www.tutorialspoint.com/upsc_ias_exams.htm"><i class="fa fa-caret-right"></i> UPSC IAS Exams </a></li>
+<li><a href="https://www.tutorialspoint.com/web_development_tutorials.htm"><i class="fa fa-caret-right"></i> Web Development </a></li>
+<li><a href="https://www.tutorialspoint.com/sports_tutorials.htm"><i class="fa fa-caret-right"></i> Sports Tutorials </a></li>
+<li><a href="https://www.tutorialspoint.com/xml_technologies_tutorials.htm"><i class="fa fa-caret-right"></i> XML Technologies </a></li>
+<li><a href="https://www.tutorialspoint.com/multi_language_tutorials.htm"><i class="fa fa-caret-right"></i> Multi-Language</a></li>
+<li><a href="https://www.tutorialspoint.com/questions_and_answers.htm"><i class="fa fa-caret-right"></i> Interview Questions</a></li>
+</ul>
+</li>
+</ul>
+<div class="clear"></div>
+</div> 
+</div>
+<div class="right-menu">
+<div class="toc-toggle">
+<a href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+</div>
+<div class="mobile-search-btn">
+<a href="https://www.tutorialspoint.com/index.htm"><i class="fal fa-search"></i></a>
+</div>
+<div class="search-box-wrap">
+	<div class="search-box" style="">
+		<div>
+			<input class="input" type="text" id="search-strings" name="key" placeholder="Search latest courses, ebooks and prime packs..." autocomplete="off">
+			<button id="btnSearch"><i class="fa fa-search" title="Search"></i></button>
+		</div>
+	</div>		
+	<div class="search-box" id="search-results" style="display: none;"></div>
+	<div class="clear"></div>
+	<script>
+		$('#search-strings').keyup(function () {
+			var keyword = $('#search-strings').val();
+			if (keyword != "" && keyword.length > 2) {
+				$.ajax({
+					url:"https://search.tutorialspoint.com/market_urls_suggestion.php",
+					method: "POST",
+               type: 'POST',
+					dataType: "json",
+               cache:false,
+					data: {
+						'keyword': keyword
+					},
+					error: function (err) {
+						console.log ( err );
+					},
+					success: function (data) {
+						if (data.length > 0) {
+					//var str = '<div class="search_title arrow_search">Search Results</div><ul>';
+					var str = '<div class="search-overlay"><ul>';
+					data.forEach((item) => {
+					   var iconStr = '<i class="fa fa-play-circle"></i>';
+					   if(item.type=='E'){
+						  iconStr = '<i class="fa fa-file-pdf"></i>';
+					   }
+					   if(item.type=='B'){
+						  iconStr = '<i class="fa fa-cubes"></i>';
+					   }
+					   if(item.type=='A' || item.type=='I' || item.type=='P'){ // profile/author/instructor
+						  iconStr = '<i class="fa fa-user"></i>';
+					   }
+					   str = str + '<a href="'+item.url+'" target="_blank"><li class="clsHeadQuestion">'+iconStr+' '+item.name+'</li></a>'; 
+					});
+					str = str + '</ul><br/></div><div class="clear"></div>';
+							$('#search-results').show();
+							$('#search-results').html(str);
+						} else {
+							$('#search-results').hide();
+							$('#search-results').html('');
+						}
+					}
+				});
+			}else{
+				$('#search-results').hide();
+				$('#search-results').html('');
+			}
+		});
+	 $('#btnSearch').click(function(){
+		   var keyword = $('#search-strings').val();
+		   window.location.href = "https://www.tutorialspoint.com/search/"+keyword;
+	 });
+	 $(document).mouseup(function(e) 
+	 {
+		 var container = $('#search-results');            
+		 if (!container.is(e.target) && container.has(e.target).length === 0) 
+		 {
+			 container.hide();
+		 }
+	 });
+	</script>
+</div>
+<div class="menu-btn videos-btn">
+<a href="https://www.tutorialspoint.com/questions/index.php"><i class="fa fa-location-arrow"></i> <span>Q/A</span></a>
+</div>
+<div class="menu-btn library-btn">
+<a href="https://www.tutorialspoint.com/tutorialslibrary.htm"><i class="fa fa-books"></i> <span>Library</span></a>
+</div>
+<div class="menu-btn ebooks-btn">
+<a href="https://www.tutorialspoint.com/latest/ebooks"><i class="fa fa-book-reader"></i> <span>eBooks</span></a>
+</div>
+<div class="menu-btn videos-btn">
+<a href="https://www.tutorialspoint.com/latest/courses"><i class="fa fa-video"></i> <span>Courses</span></a> 
+</div>
+</div>
+</div>
+</div>
+<!-- Top main-menu Ends Here -->
+</header>
+<div class="mui-container-fluid content">
+<div class="mui-container">
+<!-- Tutorial ToC Starts Here -->
+<div class="mui-col-md-3 tutorial-toc">
+<div class="mini-logo">
+<img src="./Apache CXF with WSDL First_files/apache-cxf-mini-logo.jpg" alt="Apache CXF Tutorial">
+</div>
+<ul class="toc chapters">
+<li class="heading">Apache CXF Tutorial</li>
+<li><a href="https://www.tutorialspoint.com/apache_cxf/index.htm">Apache CXF - Home</a></li>
+<li><a href="https://www.tutorialspoint.com/apache_cxf/apache_cxf_introduction.htm">Apache CXF - Introduction</a></li>
+<li><a href="https://www.tutorialspoint.com/apache_cxf/apache_cxf_with_pojo.htm">Apache CXF with POJO</a></li>
+<li><a href="https://www.tutorialspoint.com/apache_cxf/apache_cxf_with_jaxws.htm">Apache CXF with JAX-WS</a></li>
+<li style="background-color: rgb(214, 214, 214);"><a href="https://www.tutorialspoint.com/apache_cxf/apache_cxf_with_wsdl_first.htm">Apache CXF with WSDL First</a></li>
+<li><a href="https://www.tutorialspoint.com/apache_cxf/apache_cxf_with_jax_rs.htm">Apache CXF with JAX-RS</a></li>
+<li><a href="https://www.tutorialspoint.com/apache_cxf/apache_cxf_with_jms.htm">Apache CXF with JMS</a></li>
+<li><a href="https://www.tutorialspoint.com/apache_cxf/apache_cxf_conclusion.htm">Apache CXF - Conclusion</a></li>
+<li class="heading">Apache CXF Useful Resources</li>
+<li><a href="https://www.tutorialspoint.com/apache_cxf/apache_cxf_quick_guide.htm">Apache CXF - Quick Guide</a></li>
+<li><a href="https://www.tutorialspoint.com/apache_cxf/apache_cxf_useful_resources.htm">Apache CXF - Useful Resources</a></li>
+<li><a href="https://www.tutorialspoint.com/apache_cxf/apache_cxf_discussion.htm">Apache CXF - Discussion</a></li>
+</ul>
+<ul class="toc reading">
+<li class="sreading">Selected Reading</li>
+<li><a target="_top" href="https://www.tutorialspoint.com/upsc_ias_exams.htm">UPSC IAS Exams Notes</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/developers_best_practices/index.htm">Developer's Best Practices</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/questions_and_answers.htm">Questions and Answers</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/effective_resume_writing.htm">Effective Resume Writing</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/hr_interview_questions/index.htm">HR Interview Questions</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/computer_glossary.htm">Computer Glossary</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/computer_whoiswho.htm">Who is Who</a></li>
+</ul>
+<div id="stickyparent" style="position: sticky;">
+<div style="height: 250px; width: 300px; position: fixed; top: 80px;" id="sticky-ad">
+<div id="430c9911-782f-495d-88f9-69f58ca8c9a4" class="_ap_apex_ad">
+<script>
+var adpushup = adpushup || {};
+adpushup.que = adpushup.que || [];
+adpushup.que.push(function() {
+adpushup.triggerAd("430c9911-782f-495d-88f9-69f58ca8c9a4");
+});
+</script>
+</div>
+</div>
+</div>
+</div>
+<!-- Tutorial ToC Ends Here -->
+<!-- Tutorial Content Starts Here -->
+<div class="mui-col-md-6 tutorial-content">
+<h1>Apache CXF with WSDL First</h1>
+<hr>
+<div id="google-top-ads">
+<div class="top-ad-heading">Advertisements</div>
+<div style="text-align:center" class="google-top-ads">
+<div id="adp_top_ads" style="text-align:center!important;min-height:90px!important"><div id="8014640d-fd34-4b2e-9b1b-cc67234a2325" class="_ap_apex_ad"></div></div>
+<script>
+     var adPos = document.getElementById('adp_top_ads');
+     var ad_id_720 = "8014640d-fd34-4b2e-9b1b-cc67234a2325";
+     var ad_id_650 = "2d1bb2c4-eb72-471d-9c80-1bf5514728c1";
+     var ad_id_300 = "df94a1a9-ae2f-432d-9a92-d93823ff4503";
+     var width = window.innerWidth;
+     var ad_id = ad_id_720;
+     if( width <= 768 ){
+        ad_id =  ad_id_300;
+     }else if( width <= 1435 ){
+        ad_id =  ad_id_650;
+     }
+     adPos.innerHTML = '<div id="' + ad_id + '" class="_ap_apex_ad"></div>';
+     var adpushup = adpushup || {};
+     adpushup.que = adpushup.que || [];
+     adpushup.que.push(function() {
+     adpushup.triggerAd(ad_id);
+     });
+</script>
+</div>
+</div>
+<br>
+<div class="mui-container-fluid button-borders">
+<div class="pre-btn">
+<a href="https://www.tutorialspoint.com/apache_cxf/apache_cxf_with_jaxws.htm"><i class="fal fa-chevron-circle-left"></i> Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="https://www.tutorialspoint.com/apache_cxf/apache_cxf_with_jax_rs.htm">Next Page <i class="fal fa-chevron-circle-right"></i>&nbsp;</a>
+</div>
+</div>
+<div class="clearer"></div>
+<p>The CXF-POJO application that you have developed results in a very tight coupling between the client and the server. Giving a direct access to the service interface can also pose severe security threats. Thus, decoupling between the client and the server is usually desired, which is achieved by using WSDL (Web Services Description Language).</p>
+<p>We write the web service interface in a WSDL document which is XML-based. We will use a tool to map this WSDL to Apache CXF interfaces which are then implemented and used by our client and server applications. For providing decoupling, starting with a WSDL is a preferred way. For this, you need to first learn a new language - WSDL. Writing WSDL needs a careful approach and it would be better if you can gain some understanding on this before you start working on it.</p>
+<p>In this lesson, we will start by defining a web service interface in a WSDL document. We will learn how to use CXF to create both server and client applications starting with WSDL. We will keep the application simple to maintain focus on the use of CXF. After the server application is created we will publish it to a desired URL using a built-in CXF class.</p>
+<p>First, let us describe the WSDL that we are going to use.</p>
+<h2>WSDL for HelloWorld</h2>
+<p>The webservice that we are going to implement will have one single webmethod called <b>greetings</b> that accepts a <b>string</b> parameter holding the user name and returns a string message to the caller after appending a greetings message to the user name. The complete wsdl is shown below −</p>
+<pre class="prettyprint notranslate prettyprinted" style=""><span class="com">//Hello.wsdl</span><span class="pln">
+</span><span class="pun">&lt;?</span><span class="pln">xml version </span><span class="pun">=</span><span class="pln"> </span><span class="str">"1.0"</span><span class="pln"> encoding </span><span class="pun">=</span><span class="pln"> </span><span class="str">"UTF-8"</span><span class="pun">?&gt;</span><span class="pln">
+</span><span class="pun">&lt;</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">definitions xmlns</span><span class="pun">:</span><span class="pln">soap </span><span class="pun">=</span><span class="pln"> </span><span class="str">"http://schemas.xmlsoap.org/wsdl/soap/"</span><span class="pln">
+   xmlns</span><span class="pun">:</span><span class="pln">tns </span><span class="pun">=</span><span class="pln"> </span><span class="str">"http://helloworld.tutorialspoint.com/"</span><span class="pln">
+   xmlns</span><span class="pun">:</span><span class="pln">wsdl </span><span class="pun">=</span><span class="pln"> </span><span class="str">"http://schemas.xmlsoap.org/wsdl/"</span><span class="pln">
+   xmlns</span><span class="pun">:</span><span class="pln">xsd </span><span class="pun">=</span><span class="pln"> </span><span class="str">"http://www.w3.org/2001/XMLSchema"</span><span class="pln">
+   name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"HelloWorld"</span><span class="pln">
+   targetNamespace </span><span class="pun">=</span><span class="pln"> </span><span class="str">"http://helloworld.tutorialspoint.com/"</span><span class="pun">&gt;</span><span class="pln">
+   </span><span class="pun">&lt;</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">types</span><span class="pun">&gt;</span><span class="pln">
+      </span><span class="pun">&lt;</span><span class="pln">xsd</span><span class="pun">:</span><span class="pln">schema attributeFormDefault </span><span class="pun">=</span><span class="pln"> </span><span class="str">"unqualified"</span><span class="pln">
+         elementFormDefault </span><span class="pun">=</span><span class="pln"> </span><span class="str">"qualified"</span><span class="pln">
+         targetNamespace </span><span class="pun">=</span><span class="pln"> </span><span class="str">"http://helloworld.tutorialspoint.com/"</span><span class="pun">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;</span><span class="pln">xsd</span><span class="pun">:</span><span class="pln">element name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"greetings"</span><span class="pln"> type </span><span class="pun">=</span><span class="pln"> </span><span class="str">"tns:greetings"</span><span class="pun">/&gt;</span><span class="pln">
+         </span><span class="pun">&lt;</span><span class="pln">xsd</span><span class="pun">:</span><span class="pln">complexType name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"greetings"</span><span class="pun">&gt;</span><span class="pln">
+            </span><span class="pun">&lt;</span><span class="pln">xsd</span><span class="pun">:</span><span class="pln">sequence</span><span class="pun">&gt;</span><span class="pln">
+               </span><span class="pun">&lt;</span><span class="pln">xsd</span><span class="pun">:</span><span class="pln">element minOccurs </span><span class="pun">=</span><span class="pln"> </span><span class="str">"0"</span><span class="pln"> name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"arg0"</span><span class="pln"> type </span><span class="pun">=</span><span class="pln"> </span><span class="str">"xsd:string"</span><span class="pun">/&gt;</span><span class="pln">
+            </span><span class="pun">&lt;/</span><span class="pln">xsd</span><span class="pun">:</span><span class="pln">sequence</span><span class="pun">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;/</span><span class="pln">xsd</span><span class="pun">:</span><span class="pln">complexType</span><span class="pun">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;</span><span class="pln">xsd</span><span class="pun">:</span><span class="pln">element name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"greetingsResponse"</span><span class="pln">
+         type </span><span class="pun">=</span><span class="pln"> </span><span class="str">"tns:greetingsResponse"</span><span class="pun">/&gt;</span><span class="pln">
+         </span><span class="pun">&lt;</span><span class="pln">xsd</span><span class="pun">:</span><span class="pln">complexType name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"greetingsResponse"</span><span class="pun">&gt;</span><span class="pln">
+            </span><span class="pun">&lt;</span><span class="pln">xsd</span><span class="pun">:</span><span class="pln">sequence</span><span class="pun">&gt;</span><span class="pln">
+               </span><span class="pun">&lt;</span><span class="pln">xsd</span><span class="pun">:</span><span class="pln">element minOccurs </span><span class="pun">=</span><span class="pln"> </span><span class="str">"0"</span><span class="pln"> name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"return"</span><span class="pln"> type </span><span class="pun">=</span><span class="pln"> </span><span class="str">"xsd:string"</span><span class="pun">/&gt;</span><span class="pln">
+            </span><span class="pun">&lt;/</span><span class="pln">xsd</span><span class="pun">:</span><span class="pln">sequence</span><span class="pun">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;/</span><span class="pln">xsd</span><span class="pun">:</span><span class="pln">complexType</span><span class="pun">&gt;</span><span class="pln">
+      </span><span class="pun">&lt;/</span><span class="pln">xsd</span><span class="pun">:</span><span class="pln">schema</span><span class="pun">&gt;</span><span class="pln">
+   </span><span class="pun">&lt;/</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">types</span><span class="pun">&gt;</span><span class="pln">
+   </span><span class="pun">&lt;</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">message name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"greetings"</span><span class="pun">&gt;</span><span class="pln">
+      </span><span class="pun">&lt;</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">part element </span><span class="pun">=</span><span class="pln"> </span><span class="str">"tns:greetings"</span><span class="pln"> name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"parameters"</span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">&lt;/</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">part</span><span class="pun">&gt;</span><span class="pln">
+   </span><span class="pun">&lt;/</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">message</span><span class="pun">&gt;</span><span class="pln">
+   </span><span class="pun">&lt;</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">message name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"greetingsResponse"</span><span class="pun">&gt;</span><span class="pln">
+      </span><span class="pun">&lt;</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">part element </span><span class="pun">=</span><span class="pln"> </span><span class="str">"tns:greetingsResponse"</span><span class="pln"> name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"parameters"</span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">&lt;/</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">part</span><span class="pun">&gt;</span><span class="pln">
+   </span><span class="pun">&lt;/</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">message</span><span class="pun">&gt;</span><span class="pln">
+   </span><span class="pun">&lt;</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">portType name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"HelloWorldPortType"</span><span class="pun">&gt;</span><span class="pln">
+      </span><span class="pun">&lt;</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">operation name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"greetings"</span><span class="pun">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">input message </span><span class="pun">=</span><span class="pln"> </span><span class="str">"tns:greetings"</span><span class="pln"> name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"greetings"</span><span class="pun">&gt;</span><span class="pln">  </span><span class="pun">&lt;/</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">input</span><span class="pun">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">output message </span><span class="pun">=</span><span class="pln"> </span><span class="str">"tns:greetingsResponse"</span><span class="pln"> name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"greetingsResponse"</span><span class="pun">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;/</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">output</span><span class="pun">&gt;</span><span class="pln">
+      </span><span class="pun">&lt;/</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">operation</span><span class="pun">&gt;</span><span class="pln">
+   </span><span class="pun">&lt;/</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">portType</span><span class="pun">&gt;</span><span class="pln">
+   </span><span class="pun">&lt;</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">binding name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"HelloWorldSoapBinding"</span><span class="pln"> type </span><span class="pun">=</span><span class="pln"> </span><span class="str">"tns:HelloWorldPortType"</span><span class="pun">&gt;</span><span class="pln">
+      </span><span class="pun">&lt;</span><span class="pln">soap</span><span class="pun">:</span><span class="pln">binding style </span><span class="pun">=</span><span class="pln"> </span><span class="str">"document"</span><span class="pln">
+      transport </span><span class="pun">=</span><span class="pln"> </span><span class="str">"http://schemas.xmlsoap.org/soap/http"</span><span class="pun">/&gt;</span><span class="pln">
+      </span><span class="pun">&lt;</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">operation name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"greetings"</span><span class="pun">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;</span><span class="pln">soap</span><span class="pun">:</span><span class="pln">operation soapAction </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pln"> style </span><span class="pun">=</span><span class="pln"> </span><span class="str">"document"</span><span class="pun">/&gt;</span><span class="pln">
+         </span><span class="pun">&lt;</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">input name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"greetings"</span><span class="pun">&gt;&lt;/</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">input</span><span class="pun">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">output name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"greetingsResponse"</span><span class="pun">&gt;</span><span class="pln">
+            </span><span class="pun">&lt;</span><span class="pln">soap</span><span class="pun">:</span><span class="pln">body </span><span class="kwd">use</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">"literal"</span><span class="pun">/&gt;</span><span class="pln">
+         </span><span class="pun">&lt;/</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">output</span><span class="pun">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;/</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">operation</span><span class="pun">&gt;</span><span class="pln">
+   </span><span class="pun">&lt;/</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">binding</span><span class="pun">&gt;</span><span class="pln">
+   </span><span class="pun">&lt;</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">service name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"HelloWorldService"</span><span class="pun">&gt;</span><span class="pln">
+      </span><span class="pun">&lt;</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">port binding </span><span class="pun">=</span><span class="pln"> </span><span class="str">"tns:HelloWorldSoapBinding"</span><span class="pln"> name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"HelloWorldPort"</span><span class="pun">&gt;</span><span class="pln">
+         </span><span class="pun">&lt;</span><span class="pln">soap</span><span class="pun">:</span><span class="pln">address location </span><span class="pun">=</span><span class="pln"> </span><span class="str">"http://localhost:9090/HelloServerPort"</span><span class="pun">/&gt;</span><span class="pln">
+      </span><span class="pun">&lt;/</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">port</span><span class="pun">&gt;</span><span class="pln">
+   </span><span class="pun">&lt;/</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">service</span><span class="pun">&gt;</span><span class="pln">
+</span><span class="pun">&lt;/</span><span class="pln">wsdl</span><span class="pun">:</span><span class="pln">definitions</span><span class="pun">&gt;</span></pre>
+<p>Note that writing a syntactically correct wsdl has always been a challenge to the developers; there are many tools and online editors are available for creating a wsdl. These editors ask for the names of messages that you want to implement along with the parameters that you wish to pass in a message and the type of return message that you want your client application to receive. If you know wsdl syntax, you may hand code the entire document or use one of the editors to create your own.</p>
+<p>In the above wsdl, we have defined a single message called <b>greetings</b>. The message is delivered to the service called <b>HelloWorldService</b> that is running at <b>http://localhost:9090/HelloServerPort.</b></p>
+<p>With this, we will now proceed to server development. Before developing the server, we need to generate Apache CXF interface to our web service. This is to be done from the given wsdl. To do this, you use a tool called <b>wsdl2java</b>.</p>
+<h2>The wsdl2java Plugin</h2>
+<p>As we will be using maven to build the project, you will need to add the following plugin to the <b>pom.xml</b> file.</p>
+<pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;plugins&gt;</span><span class="pln">
+   </span><span class="tag">&lt;plugin&gt;</span><span class="pln">
+      </span><span class="tag">&lt;groupId&gt;</span><span class="pln">org.apache.cxf</span><span class="tag">&lt;/groupId&gt;</span><span class="pln">
+      </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">cxf-codegen-plugin</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+      </span><span class="tag">&lt;version&gt;</span><span class="pln">3.3.0</span><span class="tag">&lt;/version&gt;</span><span class="pln">
+      </span><span class="tag">&lt;executions&gt;</span><span class="pln">
+         </span><span class="tag">&lt;execution&gt;</span><span class="pln">
+            </span><span class="tag">&lt;id&gt;</span><span class="pln">generate-sources</span><span class="tag">&lt;/id&gt;</span><span class="pln">
+            </span><span class="tag">&lt;phase&gt;</span><span class="pln">generate-sources</span><span class="tag">&lt;/phase&gt;</span><span class="pln">
+            </span><span class="tag">&lt;configuration&gt;</span><span class="pln">
+               </span><span class="tag">&lt;wsdlOptions&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;wsdlOption&gt;</span><span class="pln">
+                     </span><span class="tag">&lt;wsdl&gt;</span><span class="pln">src/main/resources/hello.wsdl</span><span class="tag">&lt;/wsdl&gt;</span><span class="pln">
+                     </span><span class="tag">&lt;faultSerialVersionUID&gt;</span><span class="pln"> 1 </span><span class="tag">&lt;/faultSerialVersionUID&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;/wsdlOption&gt;</span><span class="pln">
+               </span><span class="tag">&lt;/wsdlOptions&gt;</span><span class="pln">
+            </span><span class="tag">&lt;/configuration&gt;</span><span class="pln">
+            </span><span class="tag">&lt;goals&gt;</span><span class="pln">
+               </span><span class="tag">&lt;goal&gt;</span><span class="pln">wsdl2java</span><span class="tag">&lt;/goal&gt;</span><span class="pln">
+            </span><span class="tag">&lt;/goals&gt;</span><span class="pln">
+         </span><span class="tag">&lt;/execution&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/executions&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/plugin&gt;</span><span class="pln">
+</span><span class="tag">&lt;/plugins&gt;</span></pre>
+<p>Note that we specify the location of the <b>wsdl</b> file as <b>src/main/resources/Hello.wsdl</b>. You will have to make sure that you create an appropriate directory structure for your project and add the earlier shown <b>hello.wsdl</b> file to the specified folder.</p>
+<p>The <b>wsdl2java</b> plugin will compile this wsdl and create Apache CXF classes in a pre-defined folder. The full project structure is shown here for your ready reference.</p>
+<img class="center" src="./Apache CXF with WSDL First_files/wsdl2java_predefined_folder.jpg" alt="WSDL2Apache CXF Predefined Folder">
+<p>Now, you are ready to create a server using the <b>wsdl2java</b> generated classes. The classes that wsdl2java has created is shown in the figure below −</p>
+<img class="full-width" src="./Apache CXF with WSDL First_files/wsdl2java_generated_classes.jpg" alt="WSDL2Apache CXF generated classes">
+<h2>Generated Service Interface</h2>
+<p>In the list of generated classes, you must have noticed one of them is a Apache CXF interface - this is <b>HelloWorldPortType.java</b>. Examine this file in your code editor. The file contents are shown here for your ready reference −</p>
+<pre class="prettyprint notranslate prettyprinted" style=""><span class="com">//HelloWorldPortType.java</span><span class="pln">
+</span><span class="kwd">package</span><span class="pln"> com</span><span class="pun">.</span><span class="pln">tutorialspoint</span><span class="pun">.</span><span class="pln">helloworld</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">jws</span><span class="pun">.</span><span class="typ">WebMethod</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">jws</span><span class="pun">.</span><span class="typ">WebParam</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">jws</span><span class="pun">.</span><span class="typ">WebResult</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">jws</span><span class="pun">.</span><span class="typ">WebService</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">xml</span><span class="pun">.</span><span class="pln">bind</span><span class="pun">.</span><span class="pln">annotation</span><span class="pun">.</span><span class="typ">XmlSeeAlso</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">xml</span><span class="pun">.</span><span class="pln">ws</span><span class="pun">.</span><span class="typ">RequestWrapper</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">xml</span><span class="pun">.</span><span class="pln">ws</span><span class="pun">.</span><span class="typ">ResponseWrapper</span><span class="pun">;</span><span class="pln">
+</span><span class="com">/**
+* This class was generated by Apache CXF 3.3.0
+* 2019-02-11T12:05:55.220+05:30
+* Generated source version: 3.3.0
+*
+*/</span><span class="pln">
+
+</span><span class="lit">@WebService</span><span class="pun">(</span><span class="pln">targetNamespace </span><span class="pun">=</span><span class="pln"> </span><span class="str">"http://helloworld.tutorialspoint.com/"</span><span class="pun">,</span><span class="pln">
+   name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"HelloWorldPortType"</span><span class="pun">)</span><span class="pln">
+</span><span class="lit">@XmlSeeAlso</span><span class="pun">({</span><span class="typ">ObjectFactory</span><span class="pun">.</span><span class="kwd">class</span><span class="pun">})</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">interface</span><span class="pln"> </span><span class="typ">HelloWorldPortType</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="lit">@WebMethod</span><span class="pln">
+   </span><span class="lit">@RequestWrapper</span><span class="pun">(</span><span class="pln">localName </span><span class="pun">=</span><span class="pln"> </span><span class="str">"greetings"</span><span class="pun">,</span><span class="pln"> targetNamespace </span><span class="pun">=</span><span class="pln">
+      </span><span class="str">"http://helloworld.tutorialspoint.com/"</span><span class="pun">,</span><span class="pln"> className </span><span class="pun">=</span><span class="pln">
+      </span><span class="str">"com.tutorialspoint.helloworld.Greetings"</span><span class="pun">)</span><span class="pln">
+      </span><span class="lit">@ResponseWrapper</span><span class="pun">(</span><span class="pln">localName </span><span class="pun">=</span><span class="pln"> </span><span class="str">"greetingsResponse"</span><span class="pun">,</span><span class="pln"> targetNamespace </span><span class="pun">=</span><span class="pln">
+         </span><span class="str">"http://helloworld.tutorialspoint.com/"</span><span class="pun">,</span><span class="pln"> className </span><span class="pun">=</span><span class="pln">
+         </span><span class="str">"com.tutorialspoint.helloworld.GreetingsResponse"</span><span class="pun">)</span><span class="pln">
+   </span><span class="lit">@WebResult</span><span class="pun">(</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"return"</span><span class="pun">,</span><span class="pln"> targetNamespace </span><span class="pun">=</span><span class="pln">
+      </span><span class="str">"http://helloworld.tutorialspoint.com/"</span><span class="pun">)</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">lang</span><span class="pun">.</span><span class="typ">String</span><span class="pln"> greetings</span><span class="pun">(</span><span class="pln">
+      </span><span class="lit">@WebParam</span><span class="pun">(</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> </span><span class="str">"arg0"</span><span class="pun">,</span><span class="pln"> targetNamespace </span><span class="pun">=</span><span class="pln">
+      </span><span class="str">"http://helloworld.tutorialspoint.com/"</span><span class="pun">)</span><span class="pln">
+      java</span><span class="pun">.</span><span class="pln">lang</span><span class="pun">.</span><span class="typ">String</span><span class="pln"> arg0
+   </span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<p>Note that the interface contains a method called <b>greetings</b>. This was a message type in our wsdl. The <b>wsdl2java</b> tool has added this method to the generated interface. Now, you can understand that whatever messages you write in your wsdl, a corresponding method would be generated in the interface.</p>
+<p>Now, your task would be to implement all these methods corresponding to the various messages that you have defined in your wsdl. Note that in the earlier example of Apache CXF-First, we started out with a Apache CXF interface for our web service. In this case, the Apache CXF interface is created from wsdl.</p>
+<h2>Implementing the Service Interface</h2>
+<p>The implementation of service interface is trivial. The full implementation is shown in the listing below −</p>
+<pre class="prettyprint notranslate prettyprinted" style=""><span class="com">//HelloWorldImpl.java</span><span class="pln">
+</span><span class="kwd">package</span><span class="pln"> com</span><span class="pun">.</span><span class="pln">tutorialspoint</span><span class="pun">.</span><span class="pln">helloworld</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">HelloWorldImpl</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">HelloWorldPortType</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="lit">@Override</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> greetings</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> name</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">(</span><span class="str">"hi "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> name</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<p>The code implements the sole interface method called <b>greetings</b>. The method takes one parameter of <b>string</b> type, prepends a "hi" message to it and returns the resultant string to the caller.</p>
+<p>Next, we will write the server application.</p>
+<h2>Developing Server</h2>
+<p>Developing server application is once again trivial. Here, we will use the CXF supplied <b>Endpoint</b> class to publish our service. This is done in the following two lines of code −</p>
+<pre class="prettyprint notranslate prettyprinted" style=""><span class="typ">HelloWorldPortType</span><span class="pln"> implementor </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">HelloWorldImpl</span><span class="pun">();</span><span class="pln">
+   </span><span class="typ">Endpoint</span><span class="pun">.</span><span class="pln">publish</span><span class="pun">(</span><span class="str">"http://localhost:9090/HelloServerPort"</span><span class="pun">,</span><span class="pln">
+      implementor</span><span class="pun">,</span><span class="pln">
+      </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">LoggingFeature</span><span class="pun">());</span></pre>
+<p>First, we create an object of our service implementor class - <b>HelloWorldImpl</b>. Then, we pass this reference as a second parameter to the <b>publish</b> method. The first parameter is the address to which the service is published - the clients would use this URL to access the service. The entire source for the server application is given here −</p>
+<pre class="prettyprint notranslate prettyprinted" style=""><span class="com">//Server.java</span><span class="pln">
+</span><span class="kwd">package</span><span class="pln"> com</span><span class="pun">.</span><span class="pln">tutorialspoint</span><span class="pun">.</span><span class="pln">helloworld</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">xml</span><span class="pun">.</span><span class="pln">ws</span><span class="pun">.</span><span class="typ">Endpoint</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> org</span><span class="pun">.</span><span class="pln">apache</span><span class="pun">.</span><span class="pln">cxf</span><span class="pun">.</span><span class="pln">ext</span><span class="pun">.</span><span class="pln">logging</span><span class="pun">.</span><span class="typ">LoggingFeature</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Server</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">throws</span><span class="pln"> </span><span class="typ">Exception</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">HelloWorldPortType</span><span class="pln"> implementor </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">HelloWorldImpl</span><span class="pun">();</span><span class="pln">
+      </span><span class="typ">Endpoint</span><span class="pun">.</span><span class="pln">publish</span><span class="pun">(</span><span class="str">"http://localhost:9090/HelloServerPort"</span><span class="pun">,</span><span class="pln">
+         implementor</span><span class="pun">,</span><span class="pln">
+         </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">LoggingFeature</span><span class="pun">());</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Server ready..."</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">Thread</span><span class="pun">.</span><span class="pln">sleep</span><span class="pun">(</span><span class="lit">5</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="lit">60</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="lit">1000</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Server exiting"</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">exit</span><span class="pun">(</span><span class="lit">0</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<p>To build this server class you will need to add a build profile in your <b>pom.xml</b>. This is shown below −</p>
+<pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;profile&gt;</span><span class="pln">
+   </span><span class="tag">&lt;id&gt;</span><span class="pln">server</span><span class="tag">&lt;/id&gt;</span><span class="pln">
+   </span><span class="tag">&lt;build&gt;</span><span class="pln">
+      </span><span class="tag">&lt;defaultGoal&gt;</span><span class="pln">test</span><span class="tag">&lt;/defaultGoal&gt;</span><span class="pln">
+      </span><span class="tag">&lt;plugins&gt;</span><span class="pln">
+         </span><span class="tag">&lt;plugin&gt;</span><span class="pln">
+            </span><span class="tag">&lt;groupId&gt;</span><span class="pln">org.codehaus.mojo</span><span class="tag">&lt;/groupId&gt;</span><span class="pln">
+            </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">exec-maven-plugin</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+            </span><span class="tag">&lt;version&gt;</span><span class="pln">1.6.0</span><span class="tag">&lt;/version&gt;</span><span class="pln">
+            </span><span class="tag">&lt;executions&gt;</span><span class="pln">
+               </span><span class="tag">&lt;execution&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;phase&gt;</span><span class="pln">test</span><span class="tag">&lt;/phase&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;goals&gt;</span><span class="pln">
+                     </span><span class="tag">&lt;goal&gt;</span><span class="pln">java</span><span class="tag">&lt;/goal&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;/goals&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;configuration&gt;</span><span class="pln">
+                     </span><span class="tag">&lt;mainClass&gt;</span><span class="pln">
+                        com.tutorialspoint.helloworld.Server
+                     </span><span class="tag">&lt;/mainClass&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;/configuration&gt;</span><span class="pln">
+               </span><span class="tag">&lt;/execution&gt;</span><span class="pln">
+            </span><span class="tag">&lt;/executions&gt;</span><span class="pln">
+         </span><span class="tag">&lt;/plugin&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/plugins&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/build&gt;</span><span class="pln">
+   </span><span class="tag">&lt;dependencies&gt;</span><span class="pln">
+      </span><span class="tag">&lt;dependency&gt;</span><span class="pln">
+         </span><span class="tag">&lt;groupId&gt;</span><span class="pln">org.apache.cxf</span><span class="tag">&lt;/groupId&gt;</span><span class="pln">
+         </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">cxf-rt-transports-http-jetty</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+         </span><span class="tag">&lt;version&gt;</span><span class="pln">3.3.0</span><span class="tag">&lt;/version&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/dependency&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/dependencies&gt;</span><span class="pln">
+</span><span class="tag">&lt;/profile&gt;</span></pre>
+<p>Note that the fully qualified name of the <b>Server</b> class is specified in the configuration. Also, the dependency tag specifies that we will be using the embedded jetty web server to deploy our server application.</p>
+<h2>Deploying Server</h2>
+<p>Finally, to deploy the server application, you will need to make one more modification in pom.xml to setup your application as a web application. The code that you need to add into your <b>pom.xml</b> is given below −</p>
+<pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;defaultGoal&gt;</span><span class="pln">install</span><span class="tag">&lt;/defaultGoal&gt;</span><span class="pln">
+</span><span class="tag">&lt;pluginManagement&gt;</span><span class="pln">
+   </span><span class="tag">&lt;plugins&gt;</span><span class="pln">
+      </span><span class="tag">&lt;plugin&gt;</span><span class="pln">
+         </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">maven-war-plugin</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+         </span><span class="tag">&lt;version&gt;</span><span class="pln">3.2.2</span><span class="tag">&lt;/version&gt;</span><span class="pln">
+         </span><span class="tag">&lt;configuration&gt;</span><span class="pln">
+            </span><span class="tag">&lt;webXml&gt;</span><span class="pln">src/main/webapp/WEB-INF/web.xml</span><span class="tag">&lt;/webXml&gt;</span><span class="pln">
+            </span><span class="tag">&lt;webResources&gt;</span><span class="pln">
+               </span><span class="tag">&lt;resource&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;directory&gt;</span><span class="pln">src/main/resources</span><span class="tag">&lt;/directory&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;targetPath&gt;</span><span class="pln">WEB-INF</span><span class="tag">&lt;/targetPath&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;includes&gt;</span><span class="pln">
+                     </span><span class="tag">&lt;include&gt;</span><span class="pln">*.wsdl</span><span class="tag">&lt;/include&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;/includes&gt;</span><span class="pln">
+               </span><span class="tag">&lt;/resource&gt;</span><span class="pln">
+            </span><span class="tag">&lt;/webResources&gt;</span><span class="pln">
+         </span><span class="tag">&lt;/configuration&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/plugin&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/plugins&gt;</span><span class="pln">
+</span><span class="tag">&lt;/pluginManagement&gt;</span></pre>
+<p>Before you deploy the application, you need to add two more files to your project. These are shown in the screenshot below −</p>
+<img class="center" src="./Apache CXF with WSDL First_files/before_deploy_wsdl_aplication.jpg" alt="Before Deploy WSDL Application">
+<p>These files are CXF standard files which define the mapping for <b>CXFServlet</b>. The code within the <b>web.xml</b> file is shown here for your quick reference −</p>
+<pre class="prettyprint notranslate prettyprinted" style=""><span class="com">//cxf-servlet.xml</span><span class="pln">
+</span><span class="pun">&lt;</span><span class="pln">web</span><span class="pun">-</span><span class="pln">app xmlns </span><span class="pun">=</span><span class="pln"> </span><span class="str">"http://java.sun.com/xml/ns/javaee"</span><span class="pln">
+   xmlns</span><span class="pun">:</span><span class="pln">xsi </span><span class="pun">=</span><span class="pln"> </span><span class="str">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="pln"> version</span><span class="pun">=</span><span class="str">"2.5"</span><span class="pln">
+   xsi</span><span class="pun">:</span><span class="pln">schemaLocation </span><span class="pun">=</span><span class="pln"> </span><span class="str">"http://java.sun.com/xml/ns/javaee
+   http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"</span><span class="pun">&gt;</span><span class="pln">
+   </span><span class="pun">&lt;</span><span class="pln">display</span><span class="pun">-</span><span class="pln">name</span><span class="pun">&gt;</span><span class="pln">cxf</span><span class="pun">&lt;/</span><span class="pln">display</span><span class="pun">-</span><span class="pln">name</span><span class="pun">&gt;</span><span class="pln">
+   </span><span class="str">&lt;servlet&gt;</span><span class="pln">
+      </span><span class="str">&lt;description&gt;</span><span class="typ">Apache</span><span class="pln"> CXF </span><span class="typ">Endpoint</span><span class="pun">&lt;/</span><span class="pln">description</span><span class="pun">&gt;</span><span class="pln">
+      </span><span class="pun">&lt;</span><span class="pln">display</span><span class="pun">-</span><span class="pln">name</span><span class="pun">&gt;</span><span class="pln">cxf</span><span class="pun">&lt;/</span><span class="pln">display</span><span class="pun">-</span><span class="pln">name</span><span class="pun">&gt;</span><span class="pln">
+      </span><span class="pun">&lt;</span><span class="pln">servlet</span><span class="pun">-</span><span class="pln">name</span><span class="pun">&gt;</span><span class="pln">cxf</span><span class="pun">&lt;/</span><span class="pln">servlet</span><span class="pun">-</span><span class="pln">name</span><span class="pun">&gt;</span><span class="pln">
+      </span><span class="pun">&lt;</span><span class="pln">servlet</span><span class="pun">-</span><span class="kwd">class</span><span class="pun">&gt;</span><span class="pln">
+         org</span><span class="pun">.</span><span class="pln">apache</span><span class="pun">.</span><span class="pln">cxf</span><span class="pun">.</span><span class="pln">transport</span><span class="pun">.</span><span class="pln">servlet</span><span class="pun">.</span><span class="typ">CXFServlet</span><span class="pln">
+      </span><span class="pun">&lt;/</span><span class="pln">servlet</span><span class="pun">-</span><span class="kwd">class</span><span class="pun">&gt;</span><span class="pln">
+      </span><span class="pun">&lt;</span><span class="pln">load</span><span class="pun">-</span><span class="pln">on</span><span class="pun">-</span><span class="pln">startup</span><span class="pun">&gt;</span><span class="lit">1</span><span class="pun">&lt;/</span><span class="pln">load</span><span class="pun">-</span><span class="pln">on</span><span class="pun">-</span><span class="pln">startup</span><span class="pun">&gt;</span><span class="pln">
+   </span><span class="pun">&lt;/</span><span class="pln">servlet</span><span class="pun">&gt;</span><span class="pln">
+   </span><span class="pun">&lt;</span><span class="pln">servlet</span><span class="pun">-</span><span class="pln">mapping</span><span class="pun">&gt;</span><span class="pln">
+      </span><span class="pun">&lt;</span><span class="pln">servlet</span><span class="pun">-</span><span class="pln">name</span><span class="pun">&gt;</span><span class="pln">cxf</span><span class="pun">&lt;/</span><span class="pln">servlet</span><span class="pun">-</span><span class="pln">name</span><span class="pun">&gt;</span><span class="pln">
+      </span><span class="pun">&lt;</span><span class="pln">url</span><span class="pun">-</span><span class="pln">pattern</span><span class="pun">&gt;</span><span class="str">/services/</span><span class="pun">*&lt;/</span><span class="pln">url</span><span class="pun">-</span><span class="pln">pattern</span><span class="pun">&gt;</span><span class="pln">
+   </span><span class="pun">&lt;/</span><span class="pln">servlet</span><span class="pun">-</span><span class="pln">mapping</span><span class="pun">&gt;</span><span class="pln">
+   </span><span class="pun">&lt;</span><span class="pln">session</span><span class="pun">-</span><span class="pln">config</span><span class="pun">&gt;</span><span class="pln">
+      </span><span class="pun">&lt;</span><span class="pln">session</span><span class="pun">-</span><span class="pln">timeout</span><span class="pun">&gt;</span><span class="lit">60</span><span class="pun">&lt;/</span><span class="pln">session</span><span class="pun">-</span><span class="pln">timeout</span><span class="pun">&gt;</span><span class="pln">
+   </span><span class="pun">&lt;/</span><span class="pln">session</span><span class="pun">-</span><span class="pln">config</span><span class="pun">&gt;</span><span class="pln">
+</span><span class="pun">&lt;/</span><span class="pln">web</span><span class="pun">-</span><span class="pln">app</span><span class="pun">&gt;</span></pre>
+<p>In the <b>cxf-servlet.xml</b> you declare the properties for your service's endpoint. This is shown in the code snippet below −</p>
+<pre class="prettyprint notranslate prettyprinted" style=""><span class="tag">&lt;beans</span><span class="pln"> ...</span><span class="tag">&gt;</span><span class="pln">
+   </span><span class="tag">&lt;jaxws:endpoint</span><span class="pln"> </span><span class="atn">xmlns:helloworld</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"http://tutorialspoint.com/"</span><span class="pln">
+      </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"helloHTTP"</span><span class="pln">
+      </span><span class="atn">address</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"http://localhost:9090/HelloServerPort"</span><span class="pln">
+      </span><span class="atn">serviceName</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"helloworld:HelloServiceService"</span><span class="pln">
+      </span><span class="atn">endpointName</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"helloworld:HelloServicePort"</span><span class="tag">&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/jaxws:endpoint&gt;</span><span class="pln">
+</span><span class="tag">&lt;/beans&gt;</span></pre>
+<p>Here we define the id for our service endpoint, the address on which the service will be available, the service name and the endpoint name. Now, you understand how your service gets routed and processed by a CXF servlet.</p>
+<h2>The Final pom.xml</h2>
+<p>The <b>pom.xml</b> includes a few more dependencies. Rather than describing all the dependencies, we have included the final version of pom.xml below −</p>
+<pre class="prettyprint notranslate prettyprinted" style=""><span class="pun">&lt;?</span><span class="pln">xml version</span><span class="pun">=</span><span class="str">"1.0"</span><span class="pln"> encoding </span><span class="pun">=</span><span class="pln"> </span><span class="str">"UTF-8"</span><span class="pun">?&gt;</span><span class="pln">
+</span><span class="tag">&lt;project</span><span class="pln"> </span><span class="atn">xmlns</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"http://maven.apache.org/POM/4.0.0"</span><span class="pln">
+   </span><span class="atn">xmlns:xsi</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="pln">
+   </span><span class="atn">xsi:schemaLocation</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="atv">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="tag">&gt;</span><span class="pln">
+   </span><span class="tag">&lt;modelVersion&gt;</span><span class="pln">4.0.0</span><span class="tag">&lt;/modelVersion&gt;</span><span class="pln">
+   </span><span class="tag">&lt;groupId&gt;</span><span class="pln">com.tutorialspoint</span><span class="tag">&lt;/groupId&gt;</span><span class="pln">
+   </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">cxf-wsdl</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+   </span><span class="tag">&lt;version&gt;</span><span class="pln">1.0</span><span class="tag">&lt;/version&gt;</span><span class="pln">
+   </span><span class="tag">&lt;packaging&gt;</span><span class="pln">jar</span><span class="tag">&lt;/packaging&gt;</span><span class="pln">
+   </span><span class="tag">&lt;properties&gt;</span><span class="pln">
+      </span><span class="tag">&lt;project.build.sourceEncoding&gt;</span><span class="pln">UTF-8</span><span class="tag">&lt;/project.build.sourceEncoding&gt;</span><span class="pln">
+      </span><span class="tag">&lt;maven.compiler.source&gt;</span><span class="pln">1.8</span><span class="tag">&lt;/maven.compiler.source&gt;</span><span class="pln">
+      </span><span class="tag">&lt;maven.compiler.target&gt;</span><span class="pln">1.8</span><span class="tag">&lt;/maven.compiler.target&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/properties&gt;</span><span class="pln">
+   </span><span class="tag">&lt;build&gt;</span><span class="pln">
+      </span><span class="tag">&lt;defaultGoal&gt;</span><span class="pln">install</span><span class="tag">&lt;/defaultGoal&gt;</span><span class="pln">
+      </span><span class="tag">&lt;pluginManagement&gt;</span><span class="pln">
+         </span><span class="tag">&lt;plugins&gt;</span><span class="pln">
+            </span><span class="tag">&lt;plugin&gt;</span><span class="pln">
+               </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">maven-war-plugin</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+               </span><span class="tag">&lt;version&gt;</span><span class="pln">3.2.2</span><span class="tag">&lt;/version&gt;</span><span class="pln">
+               </span><span class="tag">&lt;configuration&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;webXml&gt;</span><span class="pln">src/main/webapp/WEB-INF/web.xml</span><span class="tag">&lt;/webXml&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;webResources&gt;</span><span class="pln">
+                     </span><span class="tag">&lt;resource&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;directory&gt;</span><span class="pln">src/main/resources</span><span class="tag">&lt;/directory&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;targetPath&gt;</span><span class="pln">WEB-INF</span><span class="tag">&lt;/targetPath&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;includes&gt;</span><span class="pln">
+                           </span><span class="tag">&lt;include&gt;</span><span class="pln">*.wsdl</span><span class="tag">&lt;/include&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;/includes&gt;</span><span class="pln">
+                     </span><span class="tag">&lt;/resource&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;/webResources&gt;</span><span class="pln">
+               </span><span class="tag">&lt;/configuration&gt;</span><span class="pln">
+            </span><span class="tag">&lt;/plugin&gt;</span><span class="pln">
+         </span><span class="tag">&lt;/plugins&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/pluginManagement&gt;</span><span class="pln">
+      </span><span class="tag">&lt;plugins&gt;</span><span class="pln">
+         </span><span class="tag">&lt;plugin&gt;</span><span class="pln">
+            </span><span class="tag">&lt;groupId&gt;</span><span class="pln">org.apache.cxf</span><span class="tag">&lt;/groupId&gt;</span><span class="pln">
+            </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">cxf-codegen-plugin</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+            </span><span class="tag">&lt;version&gt;</span><span class="pln">3.3.0</span><span class="tag">&lt;/version&gt;</span><span class="pln">
+            </span><span class="tag">&lt;executions&gt;</span><span class="pln">
+               </span><span class="tag">&lt;execution&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;id&gt;</span><span class="pln">generate-sources</span><span class="tag">&lt;/id&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;phase&gt;</span><span class="pln">generate-sources</span><span class="tag">&lt;/phase&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;configuration&gt;</span><span class="pln">
+                     </span><span class="tag">&lt;wsdlOptions&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;wsdlOption&gt;</span><span class="pln">
+                           </span><span class="tag">&lt;wsdl&gt;</span><span class="pln">src/main/resources/Hello.wsdl</span><span class="tag">&lt;/wsdl&gt;</span><span class="pln">
+                           </span><span class="tag">&lt;faultSerialVersionUID&gt;</span><span class="pln">1</span><span class="tag">&lt;/faultSerialVersionUID&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;/wsdlOption&gt;</span><span class="pln">
+                     </span><span class="tag">&lt;/wsdlOptions&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;/configuration&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;goals&gt;</span><span class="pln">
+                     </span><span class="tag">&lt;goal&gt;</span><span class="pln">wsdl2java</span><span class="tag">&lt;/goal&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;/goals&gt;</span><span class="pln">
+               </span><span class="tag">&lt;/execution&gt;</span><span class="pln">
+            </span><span class="tag">&lt;/executions&gt;</span><span class="pln">
+         </span><span class="tag">&lt;/plugin&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/plugins&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/build&gt;</span><span class="pln">
+   </span><span class="tag">&lt;profiles&gt;</span><span class="pln">
+      </span><span class="tag">&lt;profile&gt;</span><span class="pln">
+         </span><span class="tag">&lt;id&gt;</span><span class="pln">server</span><span class="tag">&lt;/id&gt;</span><span class="pln">
+         </span><span class="tag">&lt;build&gt;</span><span class="pln">
+            </span><span class="tag">&lt;defaultGoal&gt;</span><span class="pln">test</span><span class="tag">&lt;/defaultGoal&gt;</span><span class="pln">
+            </span><span class="tag">&lt;plugins&gt;</span><span class="pln">
+               </span><span class="tag">&lt;plugin&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;groupId&gt;</span><span class="pln">org.codehaus.mojo</span><span class="tag">&lt;/groupId&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">exec-maven-plugin</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;version&gt;</span><span class="pln">1.6.0</span><span class="tag">&lt;/version&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;executions&gt;</span><span class="pln">
+                     </span><span class="tag">&lt;execution&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;phase&gt;</span><span class="pln">test</span><span class="tag">&lt;/phase&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;goals&gt;</span><span class="pln">
+                           </span><span class="tag">&lt;goal&gt;</span><span class="pln">java</span><span class="tag">&lt;/goal&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;/goals&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;configuration&gt;</span><span class="pln">
+                           </span><span class="tag">&lt;mainClass&gt;</span><span class="pln">
+                              com.tutorialspoint.helloworld.Server
+                           </span><span class="tag">&lt;/mainClass&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;/configuration&gt;</span><span class="pln">
+                     </span><span class="tag">&lt;/execution&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;/executions&gt;</span><span class="pln">
+               </span><span class="tag">&lt;/plugin&gt;</span><span class="pln">
+            </span><span class="tag">&lt;/plugins&gt;</span><span class="pln">
+         </span><span class="tag">&lt;/build&gt;</span><span class="pln">
+         </span><span class="tag">&lt;dependencies&gt;</span><span class="pln">
+            </span><span class="tag">&lt;dependency&gt;</span><span class="pln">
+               </span><span class="tag">&lt;groupId&gt;</span><span class="pln">org.apache.cxf</span><span class="tag">&lt;/groupId&gt;</span><span class="pln">
+               </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">cxf-rt-transports-http-jetty</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+               </span><span class="tag">&lt;version&gt;</span><span class="pln">3.3.0</span><span class="tag">&lt;/version&gt;</span><span class="pln">
+            </span><span class="tag">&lt;/dependency&gt;</span><span class="pln">
+         </span><span class="tag">&lt;/dependencies&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/profile&gt;</span><span class="pln">
+      </span><span class="tag">&lt;profile&gt;</span><span class="pln">
+         </span><span class="tag">&lt;id&gt;</span><span class="pln">client</span><span class="tag">&lt;/id&gt;</span><span class="pln">
+         </span><span class="tag">&lt;build&gt;</span><span class="pln">
+            </span><span class="tag">&lt;defaultGoal&gt;</span><span class="pln">test</span><span class="tag">&lt;/defaultGoal&gt;</span><span class="pln">
+            </span><span class="tag">&lt;plugins&gt;</span><span class="pln">
+               </span><span class="tag">&lt;plugin&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;groupId&gt;</span><span class="pln">org.codehaus.mojo</span><span class="tag">&lt;/groupId&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">exec-maven-plugin</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;executions&gt;</span><span class="pln">
+                     </span><span class="tag">&lt;execution&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;phase&gt;</span><span class="pln">test</span><span class="tag">&lt;/phase&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;goals&gt;</span><span class="pln">
+                           </span><span class="tag">&lt;goal&gt;</span><span class="pln">java</span><span class="tag">&lt;/goal&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;/goals&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;configuration&gt;</span><span class="pln">
+                           </span><span class="tag">&lt;mainClass&gt;</span><span class="pln">
+                              com.tutorialspoint.helloworld.Client
+                           </span><span class="tag">&lt;/mainClass&gt;</span><span class="pln">
+                        </span><span class="tag">&lt;/configuration&gt;</span><span class="pln">
+                     </span><span class="tag">&lt;/execution&gt;</span><span class="pln">
+                  </span><span class="tag">&lt;/executions&gt;</span><span class="pln">
+               </span><span class="tag">&lt;/plugin&gt;</span><span class="pln">
+            </span><span class="tag">&lt;/plugins&gt;</span><span class="pln">
+         </span><span class="tag">&lt;/build&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/profile&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/profiles&gt;</span><span class="pln">
+   </span><span class="tag">&lt;dependencies&gt;</span><span class="pln">
+      </span><span class="tag">&lt;dependency&gt;</span><span class="pln">
+         </span><span class="tag">&lt;groupId&gt;</span><span class="pln">org.apache.cxf</span><span class="tag">&lt;/groupId&gt;</span><span class="pln">
+         </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">cxf-rt-frontend-jaxws</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+         </span><span class="tag">&lt;version&gt;</span><span class="pln">3.3.0</span><span class="tag">&lt;/version&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/dependency&gt;</span><span class="pln">
+     
+      </span><span class="tag">&lt;dependency&gt;</span><span class="pln">
+         </span><span class="tag">&lt;groupId&gt;</span><span class="pln">org.apache.cxf</span><span class="tag">&lt;/groupId&gt;</span><span class="pln">
+         </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">cxf-rt-transports-http</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+         </span><span class="tag">&lt;version&gt;</span><span class="pln">3.3.0</span><span class="tag">&lt;/version&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/dependency&gt;</span><span class="pln">
+      
+      </span><span class="tag">&lt;dependency&gt;</span><span class="pln">
+         </span><span class="tag">&lt;groupId&gt;</span><span class="pln">org.apache.cxf</span><span class="tag">&lt;/groupId&gt;</span><span class="pln">
+         </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">cxf-rt-management</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+         </span><span class="tag">&lt;version&gt;</span><span class="pln">3.3.0</span><span class="tag">&lt;/version&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/dependency&gt;</span><span class="pln">
+      
+      </span><span class="tag">&lt;dependency&gt;</span><span class="pln">
+         </span><span class="tag">&lt;groupId&gt;</span><span class="pln">org.apache.cxf</span><span class="tag">&lt;/groupId&gt;</span><span class="pln">
+         </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">cxf-rt-features-metrics</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+         </span><span class="tag">&lt;version&gt;</span><span class="pln">3.3.0</span><span class="tag">&lt;/version&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/dependency&gt;</span><span class="pln">
+      
+      </span><span class="tag">&lt;dependency&gt;</span><span class="pln">
+         </span><span class="tag">&lt;groupId&gt;</span><span class="pln">org.apache.cxf.xjc-utils</span><span class="tag">&lt;/groupId&gt;</span><span class="pln">
+         </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">cxf-xjc-runtime</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+         </span><span class="tag">&lt;version&gt;</span><span class="pln">3.3.0</span><span class="tag">&lt;/version&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/dependency&gt;</span><span class="pln">
+      
+      </span><span class="tag">&lt;dependency&gt;</span><span class="pln">
+         </span><span class="tag">&lt;groupId&gt;</span><span class="pln">org.apache.cxf</span><span class="tag">&lt;/groupId&gt;</span><span class="pln">
+         </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">cxf-rt-features-logging</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+         </span><span class="tag">&lt;version&gt;</span><span class="pln">3.3.0</span><span class="tag">&lt;/version&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/dependency&gt;</span><span class="pln">
+     
+     </span><span class="tag">&lt;dependency&gt;</span><span class="pln">
+         </span><span class="tag">&lt;groupId&gt;</span><span class="pln">org.codehaus.mojo</span><span class="tag">&lt;/groupId&gt;</span><span class="pln">
+         </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">exec-maven-plugin</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+         </span><span class="tag">&lt;version&gt;</span><span class="pln">1.6.0</span><span class="tag">&lt;/version&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/dependency&gt;</span><span class="pln">
+      
+      </span><span class="tag">&lt;dependency&gt;</span><span class="pln">
+         </span><span class="tag">&lt;groupId&gt;</span><span class="pln">org.slf4j</span><span class="tag">&lt;/groupId&gt;</span><span class="pln">
+         </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">slf4j-api</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+         </span><span class="tag">&lt;version&gt;</span><span class="pln">1.8.0-beta2</span><span class="tag">&lt;/version&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/dependency&gt;</span><span class="pln">
+      
+      </span><span class="tag">&lt;dependency&gt;</span><span class="pln">
+         </span><span class="tag">&lt;groupId&gt;</span><span class="pln">org.apache.cxf</span><span class="tag">&lt;/groupId&gt;</span><span class="pln">
+         </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">cxf-rt-transports-http-jetty</span><span class="tag">&lt;/artifactId&gt;</span><span class="pln">
+         </span><span class="tag">&lt;version&gt;</span><span class="pln">3.3.0</span><span class="tag">&lt;/version&gt;</span><span class="pln">
+      </span><span class="tag">&lt;/dependency&gt;</span><span class="pln">
+   </span><span class="tag">&lt;/dependencies&gt;</span><span class="pln">
+</span><span class="tag">&lt;/project&gt;</span></pre>
+<p>Note that it also includes a profile for building client that we will be learning soon in the later sections.</p>
+<h2>Running the HelloWorld Service</h2>
+<p>Now, you are ready to run the web app. In the command window, run the build script using the following command.</p>
+<pre class="result notranslate">mvn clean install
+</pre>
+<p>This will generate the appropriate Apache CXF classes from your wsdl, compile your Apache CXF classes, deploy the server on the embedded jetty server and run your application.</p>
+<p>You will see the following message on the console −</p>
+<pre class="result notranslate">INFO: Setting the server's publish address to be 
+http://localhost:9090/HelloServerPort
+Server ready...
+</pre>
+<p>As before, you can test the server by opening the server URL in your browser.</p>
+<img class="full-width" src="./Apache CXF with WSDL First_files/opening_server_url.jpg" alt="Opening Server URL">
+<p>As we did not specify any operation, only a fault message is returned to the browser by our application. Now, try adding the <b>?wsdl </b>to your URL and you will see the following output −</p>
+<img class="full-width" src="./Apache CXF with WSDL First_files/wsdl_output.jpg" alt="WSDL Output">
+<p>So our server application is running as expected. You may use the SOAP Client such as <b>Postman</b> described earlier to further test your service.</p>
+<p>The next part of this tutorial is to write a client that uses our service.</p>
+<h2>Developing Client</h2>
+<p>Writing the client in a CXF application is as important as writing a server. Here is the complete code for the client that essentially consists of only three lines, the rest of the lines just print the service information to the user.</p>
+<pre class="prettyprint notranslate prettyprinted" style=""><span class="com">//Client.java</span><span class="pln">
+</span><span class="kwd">package</span><span class="pln"> com</span><span class="pun">.</span><span class="pln">tutorialspoint</span><span class="pun">.</span><span class="pln">helloworld</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Client</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">throws</span><span class="pln"> </span><span class="typ">Exception</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="com">//Create the service client with its default wsdlurl</span><span class="pln">
+      </span><span class="typ">HelloWorldService</span><span class="pln"> helloServiceService </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">HelloWorldService</span><span class="pun">();</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"service: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+         helloServiceService</span><span class="pun">.</span><span class="pln">getServiceName</span><span class="pun">());</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"wsdl location: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+         helloServiceService</span><span class="pun">.</span><span class="pln">getWSDLDocumentLocation</span><span class="pun">());</span><span class="pln">
+      </span><span class="typ">HelloWorldPortType</span><span class="pln"> helloService </span><span class="pun">=</span><span class="pln">
+         helloServiceService</span><span class="pun">.</span><span class="pln">getHelloWorldPort</span><span class="pun">();</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">helloService</span><span class="pun">.</span><span class="pln">greetings
+      </span><span class="pun">(</span><span class="typ">System</span><span class="pun">.</span><span class="pln">getProperty</span><span class="pun">(</span><span class="str">"user.name"</span><span class="pun">)));</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<p>Here, we simply create an instance of our service <b>HelloWorldService</b>, get its port by calling <b>getHelloWorldPort</b> method, and then pass our <b>greetings</b> message to it. Run the client and you will see the following output −</p>
+<pre class="result notranslate">service: {http://helloworld.tutorialspoint.com/}HelloWorldService
+wsdl location: file:/Users/drsarang/Desktop/tutorialpoint/cxf-
+wsdl/src/main/resources/Hello.wsdl
+hi drsarang
+</pre>
+<p>So far you have learned how to use CXF with Apache CXF-First and WSDL-First architectures. In the Apache CXF-First approach, you used a POJO with <b>ServerFactoryBean</b> class from CXF libraries to create a server. To create a client you used <b>ClientProxyFactoryBean</b> class from CXF library. In the WSDL-First approach, you used <b>Endpoint</b> class to publish the service at the desired URL and a specified implementor. You can now extend these techniques to integrate different protocols and transports.</p>
+<div id="load">
+	<div class="mui-col-md-12 mui-col-sm-12 np">
+		<div class="row uk-min-height" id="ebooks_grid">
+						<div class="videos">
+				<h2>Useful Video Courses</h2>
+				<hr>
+																<div class="mui-col-xl-4 mui-col-md-4 mui-col-sm-12 npr">
+					<input type="hidden" class="course_id" value="2008">
+					<div class="course-card video-card flexi rounded">
+						<div class="course-card-thumbnail">
+							<a href="https://www.tutorialspoint.com/apache_spark_online_training/index.asp" class="" data-title="apache_spark_online_training"> 
+    <img class="rounded-img" src="./Apache CXF with WSDL First_files/course_2008_image.png" alt="Apache Spark Online Training" title="Apache Spark Online Training">
+            <span class="play-button-trigger"></span>
+    </a>						</div>
+						<div class="ribbon-V"><span>Video</span></div>						<div class="course-card-body">
+							<h4 class="h48"><a href="https://www.tutorialspoint.com/apache_spark_online_training/index.asp" title="Apache Spark Online Training" class="" data-title="apache_spark_online_training">Apache Spark Online Training</a></h4>							
+							<p class="videos-details course-list-video">
+    46 Lectures 
+    <span><i class="fa fa-clock"></i> 3.5 hours </span>
+</p>							<p class="h25"><i class="fa fa-user"></i> <a href="https://www.tutorialspoint.com/profile/Arnab-Chakraborty">Arnab Chakraborty</a></p>
+<style>.h25{height:25px;overflow:hidden;}</style>						</div>
+						<div class="v-courses-price">
+							<div class="btn-width">   
+   <a href="https://www.tutorialspoint.com/apache_spark_online_training/index.asp" target="_blank">
+   <div class="btn-success rounded">More Detail</div>
+   </a>
+</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				
+																<div class="mui-col-xl-4 mui-col-md-4 mui-col-sm-12 npr">
+					<input type="hidden" class="course_id" value="3453">
+					<div class="course-card video-card flexi rounded">
+						<div class="course-card-thumbnail">
+							<a href="https://www.tutorialspoint.com/apache_spark_with_scala_hands_on_with_big_data/index.asp" class="" data-title="apache_spark_with_scala_hands_on_with_big_data"> 
+    <img class="rounded-img" src="./Apache CXF with WSDL First_files/course_3453_image.jpg" alt="Apache Spark with Scala - Hands On with Big Data" title="Apache Spark with Scala - Hands On with Big Data">
+            <span class="play-button-trigger"></span>
+    </a>						</div>
+						<div class="ribbon-V"><span>Video</span></div>						<div class="course-card-body">
+							<h4 class="h48"><a href="https://www.tutorialspoint.com/apache_spark_with_scala_hands_on_with_big_data/index.asp" title="Apache Spark with Scala - Hands On with Big Data" class="" data-title="apache_spark_with_scala_hands_on_with_big_data">Apache Spark with Scala - Hands On with Big Data</a></h4>							
+							<p class="videos-details course-list-video">
+    23 Lectures 
+    <span><i class="fa fa-clock"></i> 1.5 hours </span>
+</p>							<p class="h25"><i class="fa fa-user"></i> <a href="https://www.tutorialspoint.com/profile/mukund_kumar_mishra">Mukund Kumar Mishra</a></p>
+<style>.h25{height:25px;overflow:hidden;}</style>						</div>
+						<div class="v-courses-price">
+							<div class="btn-width">   
+   <a href="https://www.tutorialspoint.com/apache_spark_with_scala_hands_on_with_big_data/index.asp" target="_blank">
+   <div class="btn-success rounded">More Detail</div>
+   </a>
+</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				
+																<div class="mui-col-xl-4 mui-col-md-4 mui-col-sm-12 npr">
+					<input type="hidden" class="course_id" value="3693">
+					<div class="course-card video-card flexi rounded">
+						<div class="course-card-thumbnail">
+							<a href="https://www.tutorialspoint.com/learn_apache_cordova_using_visual_studio_2015_and_command_line/index.asp" class="" data-title="learn_apache_cordova_using_visual_studio_2015_and_command_line"> 
+    <img class="rounded-img" src="./Apache CXF with WSDL First_files/course_3693_image.jpg" alt="Learn Apache Cordova using Visual Studio 2015 &amp;amp; Command line" title="Learn Apache Cordova using Visual Studio 2015 &amp;amp; Command line">
+            <span class="play-button-trigger"></span>
+    </a>						</div>
+						<div class="ribbon-V"><span>Video</span></div>						<div class="course-card-body">
+							<h4 class="h48"><a href="https://www.tutorialspoint.com/learn_apache_cordova_using_visual_studio_2015_and_command_line/index.asp" title="Learn Apache Cordova using Visual Studio 2015 &amp; Command line" class="" data-title="learn_apache_cordova_using_visual_studio_2015_and_command_line">Learn Apache Cordova using Visual Studio 2015 &amp; Command line</a></h4>							
+							<p class="videos-details course-list-video">
+    16 Lectures 
+    <span><i class="fa fa-clock"></i> 1 hours </span>
+</p>							<p class="h25"><i class="fa fa-user"></i> <a href="https://www.tutorialspoint.com/profile/nilay_mehta">Nilay Mehta</a></p>
+<style>.h25{height:25px;overflow:hidden;}</style>						</div>
+						<div class="v-courses-price">
+							<div class="btn-width">   
+   <a href="https://www.tutorialspoint.com/learn_apache_cordova_using_visual_studio_2015_and_command_line/index.asp" target="_blank">
+   <div class="btn-success rounded">More Detail</div>
+   </a>
+</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				
+																<div class="mui-col-xl-4 mui-col-md-4 mui-col-sm-12 npr">
+					<input type="hidden" class="course_id" value="3874">
+					<div class="course-card video-card flexi rounded">
+						<div class="course-card-thumbnail">
+							<a href="https://www.tutorialspoint.com/delta_lake_with_apache_spark_using_scala/index.asp" class="" data-title="delta_lake_with_apache_spark_using_scala"> 
+    <img class="rounded-img" src="./Apache CXF with WSDL First_files/course_3874_image.png" alt="Delta Lake with Apache Spark using Scala" title="Delta Lake with Apache Spark using Scala">
+            <span class="play-button-trigger"></span>
+    </a>						</div>
+						<div class="ribbon-V"><span>Video</span></div>						<div class="course-card-body">
+							<h4 class="h48"><a href="https://www.tutorialspoint.com/delta_lake_with_apache_spark_using_scala/index.asp" title="Delta Lake with Apache Spark using Scala" class="" data-title="delta_lake_with_apache_spark_using_scala">Delta Lake with Apache Spark using Scala</a></h4>							
+							<p class="videos-details course-list-video">
+    52 Lectures 
+    <span><i class="fa fa-clock"></i> 1.5 hours </span>
+</p>							<p class="h25"><i class="fa fa-user"></i> <a href="https://www.tutorialspoint.com/profile/bigdata_engineer">Bigdata Engineer</a></p>
+<style>.h25{height:25px;overflow:hidden;}</style>						</div>
+						<div class="v-courses-price">
+							<div class="btn-width">   
+   <a href="https://www.tutorialspoint.com/delta_lake_with_apache_spark_using_scala/index.asp" target="_blank">
+   <div class="btn-success rounded">More Detail</div>
+   </a>
+</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				
+																<div class="mui-col-xl-4 mui-col-md-4 mui-col-sm-12 npr">
+					<input type="hidden" class="course_id" value="3900">
+					<div class="course-card video-card flexi rounded">
+						<div class="course-card-thumbnail">
+							<a href="https://www.tutorialspoint.com/apache_zeppelin_big_data_visualization_tool/index.asp" class="" data-title="apache_zeppelin_big_data_visualization_tool"> 
+    <img class="rounded-img" src="./Apache CXF with WSDL First_files/course_3900_image.png" alt="Apache Zeppelin - Big Data Visualization Tool" title="Apache Zeppelin - Big Data Visualization Tool">
+            <span class="play-button-trigger"></span>
+    </a>						</div>
+						<div class="ribbon-V"><span>Video</span></div>						<div class="course-card-body">
+							<h4 class="h48"><a href="https://www.tutorialspoint.com/apache_zeppelin_big_data_visualization_tool/index.asp" title="Apache Zeppelin - Big Data Visualization Tool" class="" data-title="apache_zeppelin_big_data_visualization_tool">Apache Zeppelin - Big Data Visualization Tool</a></h4>							
+							<p class="videos-details course-list-video">
+    14 Lectures 
+    <span><i class="fa fa-clock"></i> 1 hours </span>
+</p>							<p class="h25"><i class="fa fa-user"></i> <a href="https://www.tutorialspoint.com/profile/bigdata_engineer">Bigdata Engineer</a></p>
+<style>.h25{height:25px;overflow:hidden;}</style>						</div>
+						<div class="v-courses-price">
+							<div class="btn-width">   
+   <a href="https://www.tutorialspoint.com/apache_zeppelin_big_data_visualization_tool/index.asp" target="_blank">
+   <div class="btn-success rounded">More Detail</div>
+   </a>
+</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				
+																<div class="mui-col-xl-4 mui-col-md-4 mui-col-sm-12 npr">
+					<input type="hidden" class="course_id" value="3908">
+					<div class="course-card video-card flexi rounded">
+						<div class="course-card-thumbnail">
+							<a href="https://www.tutorialspoint.com/olympic_games_analytics_project_in_apache_spark_for_beginner/index.asp" class="" data-title="olympic_games_analytics_project_in_apache_spark_for_beginner"> 
+    <img class="rounded-img" src="./Apache CXF with WSDL First_files/course_3908_image.jpg" alt="Olympic Games Analytics Project in Apache Spark for Beginner" title="Olympic Games Analytics Project in Apache Spark for Beginner">
+            <span class="play-button-trigger"></span>
+    </a>						</div>
+						<div class="ribbon-V"><span>Video</span></div>						<div class="course-card-body">
+							<h4 class="h48"><a href="https://www.tutorialspoint.com/olympic_games_analytics_project_in_apache_spark_for_beginner/index.asp" title="Olympic Games Analytics Project in Apache Spark for Beginner" class="" data-title="olympic_games_analytics_project_in_apache_spark_for_beginner">Olympic Games Analytics Project in Apache Spark for Beginner</a></h4>							
+							<p class="videos-details course-list-video">
+    23 Lectures 
+    <span><i class="fa fa-clock"></i> 1 hours </span>
+</p>							<p class="h25"><i class="fa fa-user"></i> <a href="https://www.tutorialspoint.com/profile/bigdata_engineer">Bigdata Engineer</a></p>
+<style>.h25{height:25px;overflow:hidden;}</style>						</div>
+						<div class="v-courses-price">
+							<div class="btn-width">   
+   <a href="https://www.tutorialspoint.com/olympic_games_analytics_project_in_apache_spark_for_beginner/index.asp" target="_blank">
+   <div class="btn-success rounded">More Detail</div>
+   </a>
+</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				
+							</div>
+			
+
+			<div class="clear"></div>
+			
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<div class="clear"></div>
+<div class="mui-container-fluid button-borders show" id="bottom_navigation">
+<div class="pre-btn">
+<a href="https://www.tutorialspoint.com/apache_cxf/apache_cxf_with_jaxws.htm"><i class="fal fa-chevron-circle-left"></i> Previous Page</a>
+<a class="hide-on-mobile" href="javascript:printPage();"><i class="fa fa-print"></i> Print Page</a>
+</div>
+<div class="nxt-btn">
+<a href="https://www.tutorialspoint.com/apache_cxf/apache_cxf_with_jax_rs.htm">Next Page <i class="fal fa-chevron-circle-right"></i>&nbsp;</a>
+</div>
+</div>
+<div class="space-bottom" style="margin-bottom:20px;"></div>
+<div class="google-bottom-ads" id="google-bottom-ads">
+<div>Advertisements</div>
+<div>
+<div id="adp_bottom_ads"></div>
+<script>
+var adPos = document.getElementById('adp_bottom_ads');
+var mobile_ad_id = "a8a632a6-046e-4f5c-b25f-8bc82ac89fb2";
+var desktop_ad_id = "e7ddd6f7-1ab0-494a-bade-887daa4373a0";
+desktop_ad_id = "4951d1d6-24d4-4a31-afb7-2c22c489eae1";
+var adpushup = adpushup || {};
+adpushup.que = adpushup.que || [];
+adpushup.que.push(function() {
+var ad_id = window.innerWidth <= 768 ? mobile_ad_id : desktop_ad_id;
+adPos.innerHTML = '<div id="' + ad_id + '" class="_ap_apex_ad"></div>';
+adpushup.triggerAd(ad_id);
+});
+</script>
+</div>
+<div class="space-bottom"></div>
+</div>
+</div>
+<!-- Tutorial Content Ends Here -->
+<!-- Right Column Starts Here -->
+<div class="mui-col-md-2 google-right-ads" id="chapter-menu" style="display: none;">
+<!--
+<input type="hidden" id="vu" name="vu" value=""/>
+-->
+<div class="space-top"></div>
+<div class="mui-panel">
+<ul class="paid-menu" id="div-right-menu">
+<li><a class="hide-on-mobile" href="javascript:printPage();" title="Print this page"><i class="fa fa-print"></i> Print</a></li>
+<li><a href="javascript:void(0)" class="add_notes" title="Add Custom Notes" onclick="add_notes();"><i class="fa fa-edit"></i>&nbsp;Add Notes</a></li>
+<li><a href="javascript:void(0)" class="clsPage text-bookmark" id="text-bookmark" title="Add Bookmark" onclick="text_bookmark()"><i class="fal fa-bookmark"></i>&nbsp;Bookmark this page </a></li>
+<li><a href="javascript:void(0);" id="report_error_popup" onclick="report_error_popup();" title="Report Error"><i class="fal fa-bell"></i>&nbsp;Report Error</a></li>
+<li><a href="javascript:void(0);" id="suggestion_popup" title="Give Suggestions" onclick="suggestion_popup();"><i class="fal fa-badge-check"></i>&nbsp;Suggestions</a></li>
+</ul>
+<br>
+<div class="error_msg display_msg" style="color:red;text-align:left;"></div>
+<div class="success_msg display_msg" style="color:green;text-align:left;"></div>
+<div class="profile-my-notes" id="text_notes_div" style="display:none;">
+<textarea rows="10" class="text_notes" id="text_notes" name="text_notes" placeholder="Enter your custom notes..."></textarea>
+<br>
+<a href="javascript:void(0);" id="submit_text_notes" class="butn-save" onclick="submit_text_notes();"> Save</a>
+<a href="javascript:void(0);" class="pop-no butn-cancel" onclick="notesClose();"> Close</a>
+<p class="notes_msg"></p>
+</div>
+<div class="bottom-menu">
+<div class="tp-btn" style="width: auto;"><i class="fal fa-box-up"></i> <a href="https://www.tutorialspoint.com/market/student/dashboard.jsp">Dashboard</a></div>
+<div class="tp-btn" style="width: auto;" id="btnLogout"><i class="fal fa-sign-out-alt"></i><a href="javascript:void(0)">Logout</a></div>
+</div>
+</div>
+</div>
+<div class="mui-col-md-2 google-right-ads" id="google-right-ads">
+<div class="space-top"></div>
+<div class="google-right-ad" style="margin: 0px auto !important;margin-top:5px;min-height:250px!important">
+<div id="f0f6cff6-393d-4170-b63a-d9ff06ca9f25" class="_ap_apex_ad">
+<script>
+if( window.innerWidth > 768 ){
+   var adpushup = adpushup || {};
+   adpushup.que = adpushup.que || [];
+   adpushup.que.push(function() {
+   adpushup.triggerAd("f0f6cff6-393d-4170-b63a-d9ff06ca9f25");
+   });
+}
+</script>
+</div>
+</div>
+<div class="google-right-ad" style="margin-top:16px;min-height:250px!important">
+<div id="5c0affd5-724a-475c-bfcd-cecbc7660c36" class="_ap_apex_ad">
+<script>
+if( window.innerWidth > 768 ){
+   var adpushup = adpushup || {};
+   adpushup.que = adpushup.que || [];
+   adpushup.que.push(function() {
+   adpushup.triggerAd("5c0affd5-724a-475c-bfcd-cecbc7660c36");
+   });
+}
+</script>
+</div>
+</div>
+<div class="google-right-ad" style="margin-top:16px;margin-bottom:15px;min-height:600px!important">
+<div id="8f8814c2-d64c-4d26-9cb9-543653c0b48f" class="_ap_apex_ad">
+<script>
+if( window.innerWidth > 768 ){
+   var adpushup = adpushup || {};
+   adpushup.que = adpushup.que || [];
+   adpushup.que.push(function() {
+   adpushup.triggerAd("8f8814c2-d64c-4d26-9cb9-543653c0b48f");
+   });
+}
+</script>
+</div>
+</div>
+<div class="space-bottom" style="margin-bottom:15px;"></div>
+</div>
+<!-- Right Column Ends Here -->
+</div>
+</div>
+<div class="clear"></div>
+<footer id="footer">
+<div class="mui--text-center">
+<div class="mui--text-caption mui--text-light">
+<a href="https://www.tutorialspoint.com/index.htm" class="logo"><img class="img-responsive" src="./Apache CXF with WSDL First_files/logo-black.png" alt="Tutorials Point" title="Tutorials Point"></a>
+</div>
+<ul class="mui-list--inline mui--text-body2 mui--text-light">
+<li><a href="https://www.tutorialspoint.com/about/index.htm"><i class="fal fa-globe"></i> About us</a></li>
+<li><a href="https://www.tutorialspoint.com/about/return_refund_policy.htm"> <i class="fal fa-asterisk"></i> Refund Policy</a></li>
+<li><a href="https://www.tutorialspoint.com/about/about_terms_of_use.htm"><i class="fal fa-asterisk"></i> Terms of use</a></li>
+<li><a href="https://www.tutorialspoint.com/about/about_privacy.htm"> <i class="fal fa-shield-check"></i> Privacy Policy</a></li>
+<li><a href="https://www.tutorialspoint.com/about/faq.htm"><i class="fal fa-question-circle"></i> FAQ's</a></li>
+<li><a href="https://www.tutorialspoint.com/about/contact_us.htm"><i class="fal fa-map-marker-alt"></i> Contact</a></li>
+</ul>
+<div class="mui--text-caption mui--text-light bottom-copyright-text">© Copyright 2021. All Rights Reserved.</div>
+</div>
+<div id="privacy-banner" style="display: inherit;">
+  <div>
+    <p>
+      We make use of cookies to improve our user experience. By using this website, you agree with our Cookies Policy.
+      <a id="banner-accept" href="javascript:void(0)">Agree</a>
+      <a id="banner-learn" href="https://www.tutorialspoint.com/about/about_cookies.htm" target="_blank">Learn more</a>
+    </p>
+  </div>
+</div>
+<script async="" src="./Apache CXF with WSDL First_files/js(1)"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-232293-6');
+</script>
+<script src="./Apache CXF with WSDL First_files/text_menu.js.download"></script>
+<script>
+$(document).ready(function (){
+    var cval = readCookie('subscription_purchased');
+    if(cval == '1'){
+          // logged in and purchased subscription.
+          $('#google-right-ads').remove();
+          $('#adp1').remove();
+          $('#adp2').remove();
+          $('#stickyparent').remove();
+          $('#google-top-ads').remove();
+          $('#adp_top_ads').remove();
+          $('#google-bottom-ads').remove();
+          $('.tutorial-content hr').remove();
+          $('.login').remove();
+          $('#chapter-menu').show();
+          $('.content h1').css("border-bottom", "none");
+          $('.google-right-ads').css("padding-right", "0px");
+          $('.tutorial-content').css("border-radius", "10px");
+          $('#chapter-menu .mui-panel').css("border-radius", "10px");
+     }
+     $(document).on("click", "#btnLogout", function(){
+       $.ajax({
+           type: 'GET',
+           dataType: 'JSON',
+           cache: false,
+           url: "https://www.tutorialspoint.com/market/logout.jsp",
+           complete: function (xhr, statusText) {
+               if(xhr.status == 200) {
+                   window.location.href = 'https://www.tutorialspoint.com/index.htm'
+               } else {
+                   console.log("something went wrong");
+               }
+           }
+       });
+    });
+});
+</script>
+</footer>
+
+
+</body></html>
